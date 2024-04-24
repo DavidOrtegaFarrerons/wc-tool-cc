@@ -3,7 +3,7 @@ import sys
 from ..error.no_arguments import no_arguments
 
 
-def get_arguments():
+def get_cli_arguments():
     if len(sys.argv) < 3:
         raise Exception(no_arguments())
     cli_option = sys.argv[1]
