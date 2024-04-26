@@ -5,6 +5,7 @@ from ..service.char_count_service import count_chars
 
 
 def argument_dispatch(argument, file_path):
+
     if argument == "-c":
         print(str(count_bytes(file_path)) + " " + file_path)
 
@@ -16,3 +17,9 @@ def argument_dispatch(argument, file_path):
 
     if argument == "-m":
         print(str(count_chars(file_path)) + " " + file_path)
+
+    if argument == "":
+        result = str(count_lines(file_path)) + " " + str(count_words(file_path)) + " " + str(count_bytes(file_path))
+        print(result + " " + file_path)
+
+
