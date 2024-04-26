@@ -5,21 +5,18 @@ from ..service.char_count_service import count_chars
 
 
 def argument_dispatch(argument, file_path):
+    actions = {
+        "-c": count_bytes,
+        "-l": count_lines,
+        "-w": count_words,
+        "-m": count_chars,
+        "": lambda x: f"{count_lines(x)} {count_words(x)} {count_bytes(x)}"
+    }
 
-    if argument == "-c":
-        print(str(count_bytes(file_path)) + " " + file_path)
-
-    if argument == "-l":
-        print(str(count_lines(file_path)) + " " + file_path)
-
-    if argument == "-w":
-        print(str(count_words(file_path)) + " " + file_path)
-
-    if argument == "-m":
-        print(str(count_chars(file_path)) + " " + file_path)
-
-    if argument == "":
-        result = str(count_lines(file_path)) + " " + str(count_words(file_path)) + " " + str(count_bytes(file_path))
-        print(result + " " + file_path)
-
+    # Check if the provided argument has a corresponding function
+    if argument in actions:
+        result = actions[argument](file_path)
+        print(f"{result} {file_path}")
+    else:
+        raise Exception("Invalid argument")
 
