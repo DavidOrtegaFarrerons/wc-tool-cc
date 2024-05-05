@@ -1,10 +1,7 @@
-from .file_object_service import get_data_as_file
+def count_chars(file_path):
+    char_counter = 0
+    with open(file_path, 'r', encoding='utf-8') as file:
+        for line in file:
+            char_counter += len(line)
 
-
-def count_chars(data, data_type):
-    chars = 0
-    data = get_data_as_file(data, data_type, encoding='utf-8')
-    for line in data:
-        chars += len(line)
-
-    return chars
+    return char_counter

@@ -1,10 +1,7 @@
-from .file_object_service import get_data_as_file
+def count_words(file_path):
+    word_counter = 0
+    with open(file_path, 'r', encoding='utf-8') as file:
+        for line in file:
+            word_counter += len(line.split())
 
-
-def count_words(data, data_type):
-    words = 0
-    data = get_data_as_file(data, data_type, encoding='utf-8')
-    for line in data:
-        words += len(line.split())
-
-    return words
+    return word_counter

@@ -1,7 +1,8 @@
 import os
 import sys
 
-from ..error.no_arguments import no_arguments
+from src.error.no_arguments import no_arguments
+from src.service.temp_file_creation_service import create_temp_file
 
 
 def get_cli_selected_option():
@@ -13,10 +14,12 @@ INPUT_TYPE_STDIN = 'stdin'
 
 
 def get_cli_input():
+    if len(sys.argv) < 2 and sys.stdin is not None:
+        return create_temp_file(sys.stdin).name
+
     input_arg = sys.argv[1]
-    if input_arg != "":
-        if os.path.isfile(input_arg):
-            return INPUT_TYPE_FILE, input_arg
-        return INPUT_TYPE_STDIN, input_arg
+
+    if input_arg != "" and os.path.isfile(input_arg):
+        return input_arg
     else:
         raise Exception(no_arguments())
