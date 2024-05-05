@@ -83,5 +83,4 @@ This command will count the lines in test.txt using the output piped from the ca
   - **Description**: Completed the final step of the coding challenge, refined the code for better performance, and integrated handling of stdin with a TemporaryFile.
 
 ## Conclusion
-
-This series of commits demonstrates a step-by-step approach to building a functional tool inspired by Unix's `wc`. Each commit reflects significant advancements in the project's development, ensuring that the tool not only meets the specified requirements but is also robust and user-friendly. This project has significantly enhanced my understanding of Python, marking my first substantial engagement with the language.
+This project has significantly enhanced my understanding of Python, marking my first substantial engagement with the language.
